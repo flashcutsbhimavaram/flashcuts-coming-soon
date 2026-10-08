@@ -26,7 +26,7 @@ function App() {
             alt="Flashcuts"
             className="brand__logo"
             width="240"
-            height="100"
+            height="95"
           />
         </header>
 

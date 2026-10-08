@@ -99,18 +99,18 @@ body {
 }
 
 .brand__logo {
-  height: clamp(44px, 6vw, 64px);
+  height: clamp(52px, 7vw, 76px);
   width: auto;
-  max-width: clamp(190px, 24vw, 270px);
+  max-width: clamp(200px, 26vw, 290px);
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 2px 14px rgba(255, 255, 255, 0.12));
-  transition: transform 0.3s ease, filter 0.3s ease;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: transform 0.25s ease;
 }
 
 .brand__logo:hover {
-  transform: scale(1.02);
-  filter: drop-shadow(0 4px 20px rgba(200, 169, 110, 0.3));
+  transform: scale(1.03);
 }
 
 /* ─── Headline: "SITE UNDER CONSTRUCTION" ─── */
@@ -332,8 +332,8 @@ body {
   }
 
   .brand__logo {
-    height: 42px;
-    max-width: 175px;
+    height: 48px;
+    max-width: 190px;
   }
 
   .headline {
