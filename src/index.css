@@ -166,7 +166,7 @@ body {
   position: absolute;
   bottom: -0.75rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% - 5%));
   width: 70%;
   height: 2.5rem;
   background: radial-gradient(
@@ -184,6 +184,7 @@ body {
   max-height: 100%;
   display: block;
   margin: 0 auto;
+  transform: translateX(-5%);
 }
 
 .lottie-player svg {
