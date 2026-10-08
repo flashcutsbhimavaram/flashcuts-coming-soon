@@ -99,9 +99,9 @@ body {
 }
 
 .brand__logo {
-  height: clamp(52px, 7vw, 76px);
+  height: clamp(54px, 7.5vw, 82px);
   width: auto;
-  max-width: clamp(200px, 26vw, 290px);
+  max-width: clamp(210px, 28vw, 310px);
   object-fit: contain;
   display: block;
   image-rendering: -webkit-optimize-contrast;
