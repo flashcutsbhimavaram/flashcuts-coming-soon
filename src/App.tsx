@@ -25,8 +25,6 @@ function App() {
             src="/flashcuts-logo.png"
             alt="Flashcuts"
             className="brand__logo"
-            width="240"
-            height="97"
           />
         </header>
 
