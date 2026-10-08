@@ -8,25 +8,22 @@
 
 :root {
   --color-bg: #0a0a0a;
-  --color-bg-subtle: #111111;
-  --color-text-primary: #f0f0f0;
-  --color-text-secondary: #a0a0a0;
-  --color-text-muted: #666666;
+  --color-bg-subtle: #121214;
+  --color-text-white: #ffffff;
+  --color-text-silver: #e4e4e7;
+  --color-text-muted: #a1a1aa;
   --color-accent-gold: #c8a96e;
-  --color-accent-gold-dim: rgba(200, 169, 110, 0.15);
-  --color-border: rgba(255, 255, 255, 0.06);
+  --color-accent-gold-dim: rgba(200, 169, 110, 0.25);
+  --color-border: rgba(255, 255, 255, 0.08);
 
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-headline: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
-  --space-lg: 2.5rem;
-  --space-xl: 4rem;
-  --space-2xl: 6rem;
-
-  --max-width: 900px;
+  --space-lg: 2.25rem;
+  --space-xl: 3.5rem;
 }
 
 html {
@@ -34,41 +31,48 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  background-color: var(--color-bg);
+  overflow-x: hidden;
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   background-color: var(--color-bg);
-  color: var(--color-text-primary);
+  color: var(--color-text-white);
   line-height: 1.6;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+  position: relative;
 }
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
 
-/* ─── Ambient Background ─── */
+/* ─── Ambient Cinematic Background ─── */
 .ambient-glow {
   position: fixed;
-  top: -30%;
+  top: -20%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80vw;
+  width: 90vw;
+  max-width: 1200px;
   height: 60vh;
   background: radial-gradient(
     ellipse at center,
-    rgba(200, 169, 110, 0.03) 0%,
+    rgba(200, 169, 110, 0.05) 0%,
+    rgba(255, 255, 255, 0.01) 40%,
     transparent 70%
   );
   pointer-events: none;
   z-index: 0;
 }
 
-/* ─── Main Layout ─── */
+/* ─── Main Container ─── */
 .coming-soon {
   position: relative;
   z-index: 1;
@@ -77,152 +81,158 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: var(--space-lg) var(--space-md);
+  min-height: 100dvh;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1rem, 4vw, 2.5rem);
   text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* ─── Brand ─── */
+/* ─── Brand Logo ─── */
 .brand {
-  margin-bottom: var(--space-xl);
-  animation: fadeInDown 1s ease-out both;
+  margin-bottom: clamp(1.25rem, 3vh, 2.25rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.brand__name {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  position: relative;
-  display: inline-block;
-  padding: 0 var(--space-md);
+.brand__logo {
+  height: clamp(44px, 6vw, 64px);
+  width: auto;
+  max-width: clamp(190px, 24vw, 270px);
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 14px rgba(255, 255, 255, 0.12));
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.brand__name::before,
-.brand__name::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 2rem;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--color-accent-gold-dim),
-    transparent
-  );
+.brand__logo:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 4px 20px rgba(200, 169, 110, 0.3));
 }
 
-.brand__name::before {
-  right: 100%;
-}
-
-.brand__name::after {
-  left: 100%;
-}
-
-/* ─── Headline ─── */
+/* ─── Headline: "SITE UNDER CONSTRUCTION" ─── */
 .headline {
-  margin-bottom: var(--space-md);
-  animation: fadeInUp 1s ease-out 0.2s both;
+  margin-bottom: clamp(0.5rem, 1.5vh, 0.85rem);
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  width: 100%;
 }
 
 .headline__text {
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  font-weight: 500;
+  font-family: var(--font-headline);
+  font-size: clamp(1.85rem, 4.5vw, 3.5rem);
+  font-weight: 800;
   line-height: 1.15;
-  color: var(--color-text-primary);
-  letter-spacing: -0.01em;
-}
-
-.headline__accent {
-  color: var(--color-accent-gold);
-  font-style: italic;
+  letter-spacing: clamp(0.06em, 0.12em, 0.16em);
+  text-transform: uppercase;
+  color: var(--color-text-white);
+  background: linear-gradient(180deg, #ffffff 15%, #d1d5db 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 24px rgba(255, 255, 255, 0.08);
 }
 
 /* ─── Supporting Text ─── */
 .supporting {
-  margin-bottom: var(--space-xl);
-  animation: fadeInUp 1s ease-out 0.4s both;
+  margin-bottom: clamp(1.25rem, 3vh, 2.25rem);
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
 .supporting__text {
-  font-family: var(--font-sans);
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  font-weight: 300;
-  color: var(--color-text-secondary);
-  letter-spacing: 0.02em;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
 }
 
-/* ─── Lottie Animation Container ─── */
+/* ─── Larger Perfectly Centered Lottie Animation ─── */
 .animation-container {
   width: 100%;
-  max-width: 420px;
-  margin-bottom: var(--space-xl);
-  animation: fadeInScale 1.2s ease-out 0.6s both;
+  max-width: clamp(340px, 62vw, 760px);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto clamp(1.25rem, 3vh, 2.25rem) auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
 }
 
 .animation-container::after {
   content: '';
   position: absolute;
-  bottom: -1rem;
+  bottom: -0.75rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
-  height: 2rem;
+  width: 70%;
+  height: 2.5rem;
   background: radial-gradient(
     ellipse at center,
-    rgba(200, 169, 110, 0.06) 0%,
+    rgba(200, 169, 110, 0.08) 0%,
     transparent 70%
   );
   pointer-events: none;
+  z-index: -1;
 }
 
 .lottie-player {
-  width: 100%;
-  height: auto;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100%;
   display: block;
+  margin: 0 auto;
 }
 
-/* ─── Humorous Line ─── */
+.lottie-player svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ─── Elegant Divider ─── */
+.divider {
+  width: clamp(3rem, 8vw, 4.5rem);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(200, 169, 110, 0.6),
+    transparent
+  );
+  margin: 0 auto clamp(1rem, 2vh, 1.5rem) auto;
+  animation: fadeIn 0.9s ease-out 0.6s both;
+}
+
+/* ─── Humorous Tagline: Crisp White & Prominently Visible ─── */
 .humor {
-  animation: fadeInUp 1s ease-out 0.8s both;
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+  width: 100%;
+  padding: 0 var(--space-sm);
 }
 
 .humor__text {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--color-text-muted);
-  letter-spacing: 0.03em;
-  font-style: italic;
-  max-width: 28rem;
-  line-height: 1.7;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.025em;
+  color: #ffffff !important; /* Explicitly Pure White & Visible */
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* ─── Divider ─── */
-.divider {
-  width: 3rem;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--color-accent-gold),
-    transparent
-  );
-  margin: 0 auto var(--space-lg);
-  opacity: 0.4;
-  animation: fadeIn 1s ease-out 0.7s both;
-}
-
-/* ─── Animations ─── */
+/* ─── Entrance Keyframe Animations ─── */
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-16px);
   }
   to {
     opacity: 1;
@@ -233,7 +243,7 @@ body {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -244,7 +254,7 @@ body {
 @keyframes fadeInScale {
   from {
     opacity: 0;
-    transform: scale(0.92);
+    transform: scale(0.94);
   }
   to {
     opacity: 1;
@@ -257,108 +267,118 @@ body {
     opacity: 0;
   }
   to {
-    opacity: 0.4;
+    opacity: 1;
   }
 }
 
-/* ─── Reduced Motion ─── */
+/* ─── Accessibility: Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
   .brand,
   .headline,
   .supporting,
   .animation-container,
-  .humor,
-  .divider {
+  .divider,
+  .humor {
     animation: none !important;
-    opacity: 1;
-    transform: none;
-  }
-
-  .lottie-player {
-    /* Player will be paused via JS */
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
-/* ─── Responsive ─── */
+/* ─── Responsive Breakpoints ─── */
 
-/* Tablets and small desktops */
+/* Desktop / Large Screens (1280px+) */
+@media (min-width: 1280px) {
+  .animation-container {
+    max-width: 760px;
+  }
+}
+
+/* Small Desktops & Tablets Landscape (1024px) */
 @media (max-width: 1024px) {
   .coming-soon {
-    padding: var(--space-lg) var(--space-md);
+    padding: clamp(2rem, 4vh, 3.5rem) var(--space-md);
   }
 
   .animation-container {
-    max-width: 360px;
+    max-width: 660px;
   }
 }
 
-/* Tablets portrait */
+/* Tablets Portrait (768px) */
 @media (max-width: 768px) {
-  .brand {
-    margin-bottom: var(--space-lg);
+  .coming-soon {
+    padding: 2.5rem 1.25rem;
   }
 
   .animation-container {
-    max-width: 320px;
+    max-width: 560px;
   }
 
-  .coming-soon {
-    padding: var(--space-lg) var(--space-sm);
+  .headline__text {
+    letter-spacing: 0.1em;
   }
 }
 
-/* Mobile devices */
+/* Mobile Screens (375px – 480px) */
 @media (max-width: 480px) {
   .coming-soon {
-    padding: var(--space-md) var(--space-sm);
+    padding: 1.75rem 1rem;
     justify-content: center;
   }
 
   .brand {
-    margin-bottom: var(--space-lg);
+    margin-bottom: 1.25rem;
   }
 
-  .brand__name {
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-  }
-
-  .brand__name::before,
-  .brand__name::after {
-    width: 1.5rem;
+  .brand__logo {
+    height: 42px;
+    max-width: 175px;
   }
 
   .headline {
-    margin-bottom: var(--space-sm);
-  }
-
-  .supporting {
-    margin-bottom: var(--space-lg);
-  }
-
-  .animation-container {
-    max-width: 280px;
-    margin-bottom: var(--space-lg);
-  }
-
-  .humor__text {
-    font-size: 0.75rem;
-    max-width: 22rem;
-    padding: 0 var(--space-xs);
-  }
-}
-
-/* Small mobile (375px) */
-@media (max-width: 390px) {
-  .animation-container {
-    max-width: 260px;
+    margin-bottom: 0.5rem;
   }
 
   .headline__text {
-    font-size: 2rem;
+    font-size: 1.65rem;
+    letter-spacing: 0.08em;
+  }
+
+  .supporting {
+    margin-bottom: 1.25rem;
+  }
+
+  .supporting__text {
+    font-size: 0.95rem;
+  }
+
+  .animation-container {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 1.25rem;
   }
 
   .humor__text {
-    font-size: 0.72rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Small Mobile Screens (375px) */
+@media (max-width: 380px) {
+  .headline__text {
+    font-size: 1.45rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand__logo {
+    height: 38px;
+    max-width: 160px;
+  }
+
+  .humor__text {
+    font-size: 0.85rem;
   }
 }

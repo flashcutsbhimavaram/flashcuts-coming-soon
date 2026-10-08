@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { LottieLight } from 'lottie-react'
 
 function App() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
@@ -19,16 +19,20 @@ function App() {
     <>
       <div className="ambient-glow" aria-hidden="true" />
       <main className="coming-soon" role="main">
-        {/* Brand */}
+        {/* Brand Logo */}
         <header className="brand">
-          <span className="brand__name">Flashcuts</span>
+          <img
+            src="/flashcuts-logo.png"
+            alt="Flashcuts"
+            className="brand__logo"
+            width="240"
+            height="100"
+          />
         </header>
 
         {/* Headline */}
         <div className="headline">
-          <h1 className="headline__text">
-            We're <span className="headline__accent">almost</span> ready.
-          </h1>
+          <h1 className="headline__text">SITE UNDER CONSTRUCTION</h1>
         </div>
 
         {/* Supporting text */}
@@ -36,14 +40,14 @@ function App() {
           <p className="supporting__text">Something cinematic is coming.</p>
         </div>
 
-        {/* Lottie Animation */}
+        {/* Large Centered Lottie Animation */}
         <div
           className="animation-container"
           role="img"
           aria-label="Under construction animation"
         >
-          <DotLottieReact
-            src="/animations/under-construction.lottie"
+          <LottieLight
+            src="/animations/under-construction.json"
             loop
             autoplay={!prefersReducedMotion}
             className="lottie-player"
@@ -53,7 +57,7 @@ function App() {
         {/* Divider */}
         <div className="divider" aria-hidden="true" />
 
-        {/* Humor */}
+        {/* Humorous Tagline - Pure White & Prominently Visible */}
         <div className="humor">
           <p className="humor__text">
             Our editors are still arguing with the timeline. The timeline is winning.
