@@ -1,0 +1,364 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-bg-subtle: #111111;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #666666;
+  --color-accent-gold: #c8a96e;
+  --color-accent-gold-dim: rgba(200, 169, 110, 0.15);
+  --color-border: rgba(255, 255, 255, 0.06);
+
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  --max-width: 900px;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Ambient Background ─── */
+.ambient-glow {
+  position: fixed;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 60vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 169, 110, 0.03) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Main Layout ─── */
+.coming-soon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+}
+
+/* ─── Brand ─── */
+.brand {
+  margin-bottom: var(--space-xl);
+  animation: fadeInDown 1s ease-out both;
+}
+
+.brand__name {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  position: relative;
+  display: inline-block;
+  padding: 0 var(--space-md);
+}
+
+.brand__name::before,
+.brand__name::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 2rem;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-accent-gold-dim),
+    transparent
+  );
+}
+
+.brand__name::before {
+  right: 100%;
+}
+
+.brand__name::after {
+  left: 100%;
+}
+
+/* ─── Headline ─── */
+.headline {
+  margin-bottom: var(--space-md);
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.headline__text {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.headline__accent {
+  color: var(--color-accent-gold);
+  font-style: italic;
+}
+
+/* ─── Supporting Text ─── */
+.supporting {
+  margin-bottom: var(--space-xl);
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.supporting__text {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Lottie Animation Container ─── */
+.animation-container {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: var(--space-xl);
+  animation: fadeInScale 1.2s ease-out 0.6s both;
+  position: relative;
+}
+
+.animation-container::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2rem;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 169, 110, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.lottie-player {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── Humorous Line ─── */
+.humor {
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.humor__text {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  font-style: italic;
+  max-width: 28rem;
+  line-height: 1.7;
+}
+
+/* ─── Divider ─── */
+.divider {
+  width: 3rem;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-accent-gold),
+    transparent
+  );
+  margin: 0 auto var(--space-lg);
+  opacity: 0.4;
+  animation: fadeIn 1s ease-out 0.7s both;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .brand,
+  .headline,
+  .supporting,
+  .animation-container,
+  .humor,
+  .divider {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .lottie-player {
+    /* Player will be paused via JS */
+  }
+}
+
+/* ─── Responsive ─── */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+  .coming-soon {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .animation-container {
+    max-width: 360px;
+  }
+}
+
+/* Tablets portrait */
+@media (max-width: 768px) {
+  .brand {
+    margin-bottom: var(--space-lg);
+  }
+
+  .animation-container {
+    max-width: 320px;
+  }
+
+  .coming-soon {
+    padding: var(--space-lg) var(--space-sm);
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .coming-soon {
+    padding: var(--space-md) var(--space-sm);
+    justify-content: center;
+  }
+
+  .brand {
+    margin-bottom: var(--space-lg);
+  }
+
+  .brand__name {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+  }
+
+  .brand__name::before,
+  .brand__name::after {
+    width: 1.5rem;
+  }
+
+  .headline {
+    margin-bottom: var(--space-sm);
+  }
+
+  .supporting {
+    margin-bottom: var(--space-lg);
+  }
+
+  .animation-container {
+    max-width: 280px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .humor__text {
+    font-size: 0.75rem;
+    max-width: 22rem;
+    padding: 0 var(--space-xs);
+  }
+}
+
+/* Small mobile (375px) */
+@media (max-width: 390px) {
+  .animation-container {
+    max-width: 260px;
+  }
+
+  .headline__text {
+    font-size: 2rem;
+  }
+
+  .humor__text {
+    font-size: 0.72rem;
+  }
+}
