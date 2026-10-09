@@ -63,17 +63,17 @@ function App() {
         </div>
         {/* Social and contact links */}
         <div className="social-links">
-          <a className="social-link social-link--instagram" href="https://instagram.com/flashcuts_bhimavaram" target="_blank" rel="noopener noreferrer">
-            <img src="/instagram.svg" alt="Instagram" className="social-icon" />
-            <span>@flashcuts_bhimavaram</span>
+          <a className="social-link social-link--call" href="tel:9114566777">
+            <img src="/call.svg" alt="Call" className="social-icon" />
+            <span>9114566777</span>
           </a>
           <a className="social-link social-link--whatsapp" href="https://wa.me/9114566999" target="_blank" rel="noopener noreferrer">
             <img src="/whatsapp.svg" alt="WhatsApp" className="social-icon" />
             <span>9114566999</span>
           </a>
-          <a className="social-link social-link--call" href="tel:9114566777">
-            <img src="/call.svg" alt="Call" className="social-icon" />
-            <span>9114566777</span>
+          <a className="social-link social-link--instagram" href="https://instagram.com/flashcuts_bhimavaram" target="_blank" rel="noopener noreferrer">
+            <img src="/instagram.svg" alt="Instagram" className="social-icon" />
+            <span>@flashcuts_bhimavaram</span>
           </a>
         </div>
       </main>
