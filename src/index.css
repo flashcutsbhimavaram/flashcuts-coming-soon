@@ -166,7 +166,7 @@ body {
   position: absolute;
   bottom: -0.75rem;
   left: 50%;
-  transform: translateX(calc(-50% - 5%));
+  transform: translateX(calc(-50% - 10%));
   width: 70%;
   height: 2.5rem;
   background: radial-gradient(
@@ -184,7 +184,7 @@ body {
   max-height: 100%;
   display: block;
   margin: 0 auto;
-  transform: translateX(-5%);
+  transform: translateX(-10%);
 }
 
 .lottie-player svg {
@@ -226,6 +226,66 @@ body {
   max-width: 36rem;
   margin: 0 auto;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Social Links Footer Styles ─── */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: clamp(1.5rem, 3vh, 2.5rem);
+  width: 100%;
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.15rem;
+  color: var(--color-text-silver);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-link:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.social-link--instagram:hover {
+  background: rgba(225, 48, 108, 0.1);
+  border-color: rgba(225, 48, 108, 0.45);
+  box-shadow: 0 4px 20px rgba(225, 48, 108, 0.2);
+}
+
+.social-link--whatsapp:hover {
+  background: rgba(37, 211, 102, 0.1);
+  border-color: rgba(37, 211, 102, 0.45);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.2);
+}
+
+.social-link--call:hover {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.45);
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.2);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
 }
 
 /* ─── Entrance Keyframe Animations ─── */
